@@ -3,10 +3,10 @@
 // 3. Записать в новый результирующий массив получившиеся элементы.
 // 4. Вывести на экран новый массив.
 
-string [] CreateTextArray (int length)
+string [] CreateTextArray (int lengthArray) //ввод строк для входного массива
 {
-    string [] textArray = new string [length]; 
-    for (int i = 0; i < length; i++)
+    string [] textArray = new string [lengthArray]; 
+    for (int i = 0; i < lengthArray; i++)
     {
        Console.Write("Введите слово: ");
        textArray[i] = Convert.ToString(Console.ReadLine()); 
@@ -14,7 +14,7 @@ string [] CreateTextArray (int length)
     return textArray;    
 }
 
-string [] SearchRowFrom3Symbols (string [] text)
+string [] SearchRowFrom3Symbols (string [] text)//выбор строк, в которых количество элементов меньше или равно 3 (главный алгоритм)
 {
     string [] result = new string [text.Length];
     int count = 0;
@@ -29,7 +29,7 @@ string [] SearchRowFrom3Symbols (string [] text)
     return result;
 }
 
-void PrintArray(string[] array) 
+void PrintArray(string[] array) //печать массива
 {
     for (int i = 0; i < array.Length - 1; i++)
     {
