@@ -14,18 +14,38 @@ string [] CreateTextArray (int length)
     return textArray;    
 }
 
+string [] SearchRowFrom3Symbols (string [] text)
+{
+    string [] result = new string [text.Length];
+    int count = 0;
+    for (int i = 0; i < text.Length; i++)
+    {
+        if (text[i].Length<=3)
+        {
+            result[count] = text [i];
+            count++;
+        }
+    }
+    return result;
+}
+
 void PrintArray(string[] array) 
 {
-    Console.Write("[");
     for (int i = 0; i < array.Length - 1; i++)
     {
-        Console.Write($"{array[i]}, ");
+        if (array[i] != null)
+        {
+        Console.Write($"{array[i]} ");
+        }
     }
-    Console.WriteLine($"{array[array.Length - 1]}]");
 }
 
 
-int length = 5;
+int length = new Random().Next(2,6);
 string [] text = CreateTextArray(length);
-Console.WriteLine();
+Console.WriteLine("Входной массив:");
 PrintArray(text);
+string [] resultArray = SearchRowFrom3Symbols(text);
+Console.WriteLine();
+Console.WriteLine("Массив из строк с количеством символов 3 и менее:");
+PrintArray(resultArray);
